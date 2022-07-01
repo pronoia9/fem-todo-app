@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+// ### Primary
+// - Bright Blue: hsl(220, 98%, 61%)
+// - Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+
+// ### Neutral
+// ### Light Theme
+// - Very Light Gray: hsl(0, 0%, 98%)
+// - Very Light Grayish Blue: hsl(236, 33%, 92%)
+// - Light Grayish Blue: hsl(233, 11%, 84%)
+// - Dark Grayish Blue: hsl(236, 9%, 61%)
+// - Very Dark Grayish Blue: hsl(235, 19%, 35%)
+
+// ### Dark Theme
+// - Very Dark Blue: hsl(235, 21%, 11%)
+// - Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+// - Light Grayish Blue: hsl(234, 39%, 85%)
+// - Light Grayish Blue (hover): hsl(236, 33%, 92%)
+// - Dark Grayish Blue: hsl(234, 11%, 52%)
+// - Very Dark Grayish Blue: hsl(233, 14%, 35%)
+// - Very Dark Grayish Blue: hsl(237, 14%, 26%)
+
+:root {
+  --color-bright-blue: hsl(220, 98%, 61%);
+  --gradient-primary: linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+.dark-theme {
+  --color-bg: hsl(235, 21%, 11%);
+  --color-surface: hsl(235, 24%, 19%);
+  --color-border: #393a4b;
+  --color-text-active: hsl(234, 39%, 85%);
+  --color-text-completed: hsl(233, 14%, 35%);
+  --color-text-1: hsl(235, 16%, 43%);
+  --box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+}
+.light-theme {
+  --color-bg: hsl(0, 0%, 98%);
+  --color-surface: hsl(0, 0%, 100%);
+  --color-border: #e3e4f1;
+  --color-text-active: hsl(235, 19%, 35%);
+  --color-text-completed: hsl(233, 11%, 84%);
+  --color-text-1: hsl(235, 9%, 61%);
+  --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+.christmas-theme {
+  --color-bg: #e1e1e1;
+  --color-surface: #f93838;
+  --color-border: #ff7171;
+  --color-text-active: #f1faee;
+  --color-text-completed: #ff7474;
+  --color-text-1: #ffa7a7;
+  --box-shadow: 0px 35px 50px -15px rgba(190, 0, 0, 0.5);
+}
+
+html {
+  position: relative;
+  box-sizing: border-box;
+  font-size: 50%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+body {
+  min-height: 100vh;
+  /* background: url('/assets/img/trees-1.png'), url('/assets/img/trees-2.png'), url('/assets/img/santa.png'), var(--color-bg); */
+  // background-image: url('/assets/img/trees-1.png'), url('/assets/img/trees-2.png'), url('/assets/img/santa.png');
+  background-position: bottom -1rem left -42rem, bottom -1rem right -42rem, top 360px right -20rem;
+  background-repeat: no-repeat;
+  background-size: 30rem, 30rem, 10rem;
+  background-color: var(--color-bg);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.25rem;
+  transition: background 1s;
+
+  &.christmas-theme {
+    background-position: bottom -1rem left -10rem, bottom -1rem right -10rem, top 360px right -2.5rem;
+  }
+}
+
+/* accessibility */
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+*:focus {
+  outline: 2px dotted var(--color-text-active);
+}
+
+/* media queries */
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-size: 42rem, 42rem, 15rem;
+  }
+}
