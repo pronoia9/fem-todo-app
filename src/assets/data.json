@@ -1,0 +1,10 @@
+{
+  "default": [
+    { "todo": "Complete online JavaScript course", "status": "Complete" },
+    { "todo": "Jog around the park 3x", "status": "" },
+    { "todo": "10 minutes meditation", "status": "" },
+    { "todo": "Read for 1 hour", "status": "" },
+    { "todo": "Pick up groceries", "status": "" },
+    { "todo": "Complete Todo App on Frontend Mentor", "status": "" }
+  ]
+}
