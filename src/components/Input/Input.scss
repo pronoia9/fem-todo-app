@@ -1,0 +1,12 @@
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.snowflake {
+  transform: scale(1.15);
+}
