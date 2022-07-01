@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
 import Banner from './Banner/Banner';
+import Theme from './Theme/Theme';
 import Input from './Input/Input';
 import TodoList from './TodoList/TodoList';
 const data = require('../assets/data.json');
@@ -21,6 +22,7 @@ export default function App() {
   return (
     <div className=''>
       <Banner />
+      <Theme />
       <Input input={input} changeInput={changeInput} />
       <TodoList state={state} data={data} />
     </div>
