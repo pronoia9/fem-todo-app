@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.scss';
-import Input from './Input';
-import TodoList from './TodoList';
+import Banner from './Banner/Banner';
+import Input from './Input/Input';
+import TodoList from './TodoList/TodoList';
 const data = require('../assets/data.json');
 
 export default function App() {
@@ -9,12 +10,17 @@ export default function App() {
   const [state, setState] = useState();
   // state for input
   const [input, setInput] = useState();
-  useEffect(() => { setState('All'); setInput(''); }, []);
+  
+  useEffect(() => {
+    setState('All');
+    setInput('');
+  }, []);
 
-  const changeInput = (val) => setInput(val); 
+  const changeInput = (val) => setInput(val);
 
   return (
     <div className=''>
+      <Banner />
       <Input input={input} changeInput={changeInput} />
       <TodoList state={state} data={data} />
     </div>
