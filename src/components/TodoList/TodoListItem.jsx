@@ -37,7 +37,7 @@ export default function TodoListItem({ todo, idx }) {
         aria-label='delete item'
         onClick={() => {
           setDeleteAnimation(true);
-          setTimeout(() => removeTodo(todo), 1000);
+          setTimeout(() => removeTodo(todo), 500);
         }}>
         <img src={require('../../assets/images/icon-cross.svg').default} alt='cross' />
       </div>
