@@ -10,7 +10,7 @@ export default function App() {
       <main className='main'>
         {/* <Header /> */}
         <div className='main__header'>
-          <h1 class='heading svelte-7ijpyd'>Todo</h1>
+          <h1 className='heading'>Todo</h1>
           <ThemeButton />
         </div>
         <TodoList />

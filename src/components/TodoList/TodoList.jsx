@@ -10,7 +10,7 @@ export default function TodoList() {
         <TodoInput />
 
         <div className='todo-list__container'>
-          <ul class='todo-list__list' id='todo-list'>
+          <ul className='todo-list__list' id='todo-list'>
             {/* <Todo name={todo.name} bind:completed={todo.completed} id={todo.id} on:deleteTodo={deleteTodo}/> */}
             <TodoListItem />
           </ul>
