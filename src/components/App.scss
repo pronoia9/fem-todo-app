@@ -420,20 +420,6 @@ button:hover {
   }
 }
 
-/****************  THEME BUTTON  ****************/
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.snowflake {
-  transform: scale(1.15);
-}
-
 /***********************  BUNDLE  ***********************/
 .bg-img-container {
   position: absolute;
@@ -504,17 +490,6 @@ body {
     font-size: 5rem;
     line-height: 5rem;
   }
-}
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-.snowflake {
-  transform: scale(1.15);
 }
 .todo-list {
   margin-bottom: 12rem;
