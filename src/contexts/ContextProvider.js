@@ -15,6 +15,7 @@ export const ContextProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [todos, setTodos] = useState(defaultTodos);
   const [input, setInput] = useState('');
+  const [filter, setFilter] = useState('');
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -38,7 +39,16 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <StateContext.Provider
-      value={{ darkMode, toggleTheme, todos, setTodos, toggleTodoStatus, removeTodo, input, setInput, addTodo }}>
+      value={{
+        darkMode, setDarkMode,
+        toggleTheme,
+        todos, setTodos,
+        toggleTodoStatus,
+        removeTodo,
+        addTodo,
+        input, setInput,
+        filter, setFilter,
+      }}>
       {children}
     </StateContext.Provider>
   );
