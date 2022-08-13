@@ -3,7 +3,7 @@ import './TodoInput.scss';
 import { useStateContext } from '../../contexts/ContextProvider';
 
 export default function TodoInput() {
-  const { input, setInput } = useStateContext();
+  const { input, setInput, addTodo } = useStateContext();
 
   return (
     <div className='todo-list__input-wrapper'>
@@ -14,6 +14,7 @@ export default function TodoInput() {
         aria-label='add a new item to the todo list'
         value={input}
         onChange={(e) => { setInput(e.target.value); }}
+        onKeyDown={(e) => { e.key === 'Enter' && addTodo(); }}
       />
     </div>
   );
