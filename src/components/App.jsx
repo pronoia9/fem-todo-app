@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import Banner from './Banner/Banner';
 import ThemeButton from './ThemeButton/ThemeButton';
