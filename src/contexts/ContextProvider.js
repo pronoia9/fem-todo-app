@@ -21,9 +21,22 @@ export const ContextProvider = ({ children }) => {
     // document.getElementsByTagName('body')[0].classList.toggle('dark-theme');
   };
 
+  const changeTodoStatus = (todo, idx) => {
+    let temp = todos;
+    console.log('before:', temp);
+    temp[idx].completed = !temp[idx].completed;
+    setTodos(temp);
+    console.log('after:', temp);
+    // setTodos((todos) => [...todos, { ...todo, completed: !todo.completed }]);
+  };
+
+  const removeTodo = (todo, idx) => {
+    setTodos(todos.splice(idx, 1));
+  };
+
   return (
     <StateContext.Provider
-      value={{ darkMode, toggleTheme, todos, setTodos, input, setInput }}>
+      value={{ darkMode, toggleTheme, todos, setTodos, changeTodoStatus, removeTodo, input, setInput }}>
       {children}
     </StateContext.Provider>
   );
