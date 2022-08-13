@@ -31,9 +31,14 @@ export const ContextProvider = ({ children }) => {
     setTodos(todos.filter((t) => t.id !== id));
   };
 
+  const addTodo = () => {
+    setTodos((todos) => ([...todos, { id: Math.floor(Math.random() * 10000), title: input, completed: false }]));
+    setInput('');
+  }
+
   return (
     <StateContext.Provider
-      value={{ darkMode, toggleTheme, todos, setTodos, toggleTodoStatus, removeTodo, input, setInput }}>
+      value={{ darkMode, toggleTheme, todos, setTodos, toggleTodoStatus, removeTodo, input, setInput, addTodo }}>
       {children}
     </StateContext.Provider>
   );
