@@ -33,9 +33,13 @@ export const ContextProvider = ({ children }) => {
   };
 
   const addTodo = () => {
-    setTodos((todos) => ([...todos, { id: Math.floor(Math.random() * 10000), title: input, completed: false }]));
+    setTodos((todos) => [...todos, { id: Math.floor(Math.random() * 10000), title: input, completed: false }]);
     setInput('');
-  }
+  };
+
+  const clearCompleted = () => {
+    setTodos(todos.filter((t) => !t.completed));
+  };
 
   return (
     <StateContext.Provider
@@ -46,6 +50,7 @@ export const ContextProvider = ({ children }) => {
         toggleTodoStatus,
         removeTodo,
         addTodo,
+        clearCompleted,
         input, setInput,
         filter, setFilter,
       }}>
