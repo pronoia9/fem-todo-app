@@ -9,7 +9,7 @@ export default function ThemeButton() {
   const { darkMode, toggleTheme } = useStateContext();
 
   return (
-    <button aria-label='change the theme of the app' onClick={toggleTheme}>
+    <button className='theme-button' aria-label='change the theme of the app' onClick={toggleTheme}>
       <img src={(darkMode ? sun : moon).default} alt='theme-button' />
     </button>
   );
