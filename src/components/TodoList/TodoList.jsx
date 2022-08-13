@@ -14,7 +14,7 @@ export default function TodoList() {
         <TodoInput />
         <div className='todo-list__container'>
           <ul className='todo-list__list' id='todo-list'>
-            {todos.map((todo) => <TodoListItem key={todo.id} />)}
+            {todos.map((todo) => <TodoListItem key={todo.id} todo={todo} />)}
           </ul>
           <TodoFooter />
         </div>
