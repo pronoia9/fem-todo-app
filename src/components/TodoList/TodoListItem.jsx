@@ -1,6 +1,8 @@
 import './TodoListItem.scss';
 
-export default function TodoListItem() {
+export default function TodoListItem({ todo, idx }) {
+  const { id, title, status } = todo;
+  
   return (
     <li className='todo'>
       <label className='label'>
@@ -10,11 +12,13 @@ export default function TodoListItem() {
             <img className='icon-check' src='/assets/img/icon-check.svg' alt='' aria-hidden='true' />
           </span>
         </span>
-        <span className='name'>Name</span>
+        <span className='name'>{title}</span>
       </label>
-      <button className='btn-close' type='button' aria-label='delete item'>
+      <div className='btn-close' type='button' aria-label='delete item' onClick={(idx) => {
+        // TODO
+      }}>
         <img src={require('../../assets/images/icon-cross.svg').default} alt='cross' />
-      </button>
+      </div>
     </li>
   );
 }
