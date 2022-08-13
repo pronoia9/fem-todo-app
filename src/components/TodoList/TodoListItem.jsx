@@ -21,7 +21,7 @@ export default function TodoListItem({ todo, idx }) {
             />
           </span>
         </span>
-        <span className='name'>{`${title} ${completed ? '✅' : ''}`}</span>
+        <span className='name'>{title}</span>
       </label>
       <div className='btn-close' type='button' aria-label='delete item' onClick={() => removeTodo(id, idx)}>
         <img src={require('../../assets/images/icon-cross.svg').default} alt='cross' />
