@@ -3,8 +3,6 @@ import ThemeButton from './ThemeButton/ThemeButton';
 import TodoList from './TodoList/TodoList';
 import './App.scss';
 
-import { useStateContext } from '../contexts/ContextProvider';
-
 export default function App() {
   return (
     <>
