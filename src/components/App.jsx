@@ -8,24 +8,21 @@ import './App.scss';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function App() {
-  const { state, setState, toggleTheme } = useStateContext();
+  const { darkMode } = useStateContext();
 
   // add theme to body
   useEffect(() => {
-    document.getElementsByTagName('body')[0].classList.add(`${state.theme}-theme`);
-  }, [state.theme]);
+    document.getElementsByTagName('body')[0].classList.add(`${darkMode ? 'dark' : 'light'}-theme`);
+  }, [darkMode]);
 
   return (
     <>
       <Banner />
-      <ThemeButton />
       <main className='main'>
         {/* <Header /> */}
         <div className='main__header'>
           <h1 class='heading svelte-7ijpyd'>Todo</h1>
-          <button aria-label='change the theme of the app' class='svelte-21kiri'>
-            <img src={require('../assets/images/icon-sun.svg').default} alt='theme-button' />
-          </button>
+          <ThemeButton />
         </div>
         <TodoList />
       </main>
