@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import './TodoListItem.scss';
 
 import { useStateContext } from '../../contexts/ContextProvider';
-import { useState } from 'react';
 
 export default function TodoListItem({ todo, idx }) {
   const [animation, setAnimation] = useState(false);
