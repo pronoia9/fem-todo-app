@@ -1,14 +1,16 @@
 import './TodoListItem.scss';
 
 import { useStateContext } from '../../contexts/ContextProvider';
+import { useState } from 'react';
 
 export default function TodoListItem({ todo, idx }) {
+  const [animation, setAnimation] = useState(false);
   const { toggleTodoStatus, removeTodo } = useStateContext();
   const { id, title, completed } = todo;
   console.log(idx, todo);
 
   return (
-    <li className={`todo${completed ? ' completed' : ''}`}>
+    <li className={`todo${completed ? ' completed' : ''}${animation ? ' animation--fadeOut' : ''}`}>
       <label className='label'>
         <input className='checkbox sr-only' />
         <span className='fake-checkbox-wrapper'>
@@ -23,7 +25,14 @@ export default function TodoListItem({ todo, idx }) {
         </span>
         <span className='name'>{title}</span>
       </label>
-      <div className='btn-close' type='button' aria-label='delete item' onClick={() => removeTodo(id, idx)}>
+      <div
+        className='btn-close'
+        type='button'
+        aria-label='delete item'
+        onClick={() => {
+          setAnimation(true);
+          setTimeout(() => removeTodo(id, idx), 1000);
+        }}>
         <img src={require('../../assets/images/icon-cross.svg').default} alt='cross' />
       </div>
     </li>
