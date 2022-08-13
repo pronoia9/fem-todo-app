@@ -3,7 +3,7 @@ import './TodoFooter.scss';
 import { useStateContext } from '../../contexts/ContextProvider';
 
 export default function TodoFooter() {
-  const { filter, setFilter } = useStateContext();
+  const { filter, setFilter, clearCompleted } = useStateContext();
 
   return (
     <div className='todo-list__footer'>
@@ -23,7 +23,7 @@ export default function TodoFooter() {
           Completed
         </button>
       </div>
-      <button className='clear-completed'>Clear Completed</button>
+      <button className='clear-completed' onClick={clearCompleted}>Clear Completed</button>
     </div>
   );
 }
