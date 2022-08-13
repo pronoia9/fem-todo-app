@@ -15,20 +15,21 @@ export const ContextProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true);
   const [todos, setTodos] = useState(defaultTodos);
   const [input, setInput] = useState('');
+  const [filter, setFilter] = useState('');
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
     // document.getElementsByTagName('body')[0].classList.toggle('dark-theme');
   };
 
-  const toggleTodoStatus = (todo, idx) => {
+  const toggleTodoStatus = (todo) => {
     const temp = [...todos];
-    temp[idx].completed = !todo.completed;
+    temp[todos.findIndex((t) => t.id === todo.id)].completed = !todo.completed;
     setTodos(temp);
   };
 
-  const removeTodo = (id, idx) => {
-    setTodos(todos.filter((t) => t.id !== id));
+  const removeTodo = (todo) => {
+    setTodos(todos.filter((t) => t.id !== todo.id));
   };
 
   const addTodo = () => {
@@ -38,7 +39,16 @@ export const ContextProvider = ({ children }) => {
 
   return (
     <StateContext.Provider
-      value={{ darkMode, toggleTheme, todos, setTodos, toggleTodoStatus, removeTodo, input, setInput, addTodo }}>
+      value={{
+        darkMode, setDarkMode,
+        toggleTheme,
+        todos, setTodos,
+        toggleTodoStatus,
+        removeTodo,
+        addTodo,
+        input, setInput,
+        filter, setFilter,
+      }}>
       {children}
     </StateContext.Provider>
   );

@@ -1,12 +1,19 @@
-import './TodoList.scss';
+import { useEffect, useState } from 'react';
 import TodoInput from './TodoInput';
 import TodoListItem from './TodoListItem';
 import TodoFooter from './TodoFooter';
+import './TodoList.scss';
 
 import { useStateContext } from '../../contexts/ContextProvider';
 
 export default function TodoList() {
-  const { todos } = useStateContext();
+  const { todos, filter } = useStateContext();
+  const [ filteredTodos, setFilteredTodos ] = useState(todos);
+  
+  useEffect(() => {
+    if (filter) setFilteredTodos(todos.filter((t) => t.completed === (filter === 'active' ? false : true)));
+    else setFilteredTodos(todos);
+  }, [todos, setFilteredTodos, filter])
 
   return (
     <>
@@ -14,7 +21,7 @@ export default function TodoList() {
         <TodoInput />
         <div className='todo-list__container'>
           <ul className='todo-list__list' id='todo-list'>
-            {todos.map((todo, idx) => <TodoListItem key={todo.id} todo={todo} idx={idx} />)}
+            {filteredTodos.map((todo, idx) => <TodoListItem key={todo.id} todo={todo} idx={idx} />)}
           </ul>
           <TodoFooter />
         </div>
