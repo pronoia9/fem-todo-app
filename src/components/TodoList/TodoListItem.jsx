@@ -7,7 +7,6 @@ export default function TodoListItem({ todo, idx }) {
   const [animation, setAnimation] = useState(false);
   const { toggleTodoStatus, removeTodo } = useStateContext();
   const { id, title, completed } = todo;
-  console.log(idx, todo);
 
   return (
     <li className={`todo${completed ? ' completed' : ''}${animation ? ' animation--fadeOut' : ''}`}>

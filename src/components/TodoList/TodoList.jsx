@@ -10,7 +10,7 @@ export default function TodoList() {
 
   return (
     <>
-      <form className='todo-list'>
+      <form className='todo-list' onSubmit={(e) => e.preventDefault()}>
         <TodoInput />
         <div className='todo-list__container'>
           <ul className='todo-list__list' id='todo-list'>
