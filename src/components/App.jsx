@@ -8,9 +8,8 @@ export default function App() {
     <>
       <Banner />
       <main className='main'>
-        {/* <Header /> */}
         <div className='main__header'>
-          <h1 className='heading'>Todo</h1>
+          <h1 className='heading'>TODO</h1>
           <ThemeButton />
         </div>
         <TodoList />
