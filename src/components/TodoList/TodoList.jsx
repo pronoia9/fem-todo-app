@@ -6,15 +6,10 @@ import TodoFooter from './TodoFooter';
 export default function TodoList() {
   return (
     <>
-      {/* <TodoListMenu />
-    <TodoListItem />
-    <Footer /> */}
       <form className='todo-list'>
-        {/* INPUT */}
         <TodoInput />
 
         <div className='todo-list__container'>
-          {/* LIST */}
           <ul class='todo-list__list' id='todo-list'>
             {/* <Todo name={todo.name} bind:completed={todo.completed} id={todo.id} on:deleteTodo={deleteTodo}/> */}
             <li class='todo'>
@@ -33,16 +28,7 @@ export default function TodoList() {
             </li>
           </ul>
 
-          {/* <Footer /> */}
-          <div class='todo-list__footer'>
-            <span class='items-left'>5 items left</span>
-            <div class='todo-list__options-container'>
-              <button class='todo-list__filter-option active-filter'>All</button>
-              <button class='todo-list__filter-option'>Active</button>
-              <button class='todo-list__filter-option'>Completed</button>
-            </div>
-            <button class='clear-completed'>Clear Completed</button>
-          </div>
+          <TodoFooter />
         </div>
       </form>
     </>
