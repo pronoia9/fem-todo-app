@@ -17,6 +17,7 @@ export const ContextProvider = ({ children }) => {
   const toggleTheme = () => {
     // setState((state) => ({ ...state, theme: state.theme === 'dark' ? 'light' : 'dark' }));
     setDarkMode(!darkMode);
+    document.getElementsByTagName('body')[0].classList.toggle('dark-theme');
   };
 
   return (
