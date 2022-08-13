@@ -8,10 +8,12 @@ import './App.scss';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function App() {
+  const { state, setState, toggleTheme } = useStateContext();
+
   // add theme to body
   useEffect(() => {
-    document.getElementsByTagName('body')[0].classList.add('dark-theme');
-  }, []);
+    document.getElementsByTagName('body')[0].classList.add(`${state.theme}-theme`);
+  }, [state.theme]);
 
   return (
     <>
