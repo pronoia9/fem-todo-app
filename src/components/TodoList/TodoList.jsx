@@ -1,7 +1,7 @@
-import './TodoList.scss';
 import TodoInput from './TodoInput';
 import TodoListItem from './TodoListItem';
 import TodoFooter from './TodoFooter';
+import './TodoList.scss';
 
 import { useStateContext } from '../../contexts/ContextProvider';
 
