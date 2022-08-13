@@ -26,3 +26,6 @@ export default function App() {
     </>
   );
 }
+
+// TODO: use local storage for todos
+// TODO: add dragging
