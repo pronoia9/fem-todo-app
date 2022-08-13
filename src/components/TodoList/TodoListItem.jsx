@@ -13,7 +13,7 @@ export default function TodoListItem({ todo, idx }) {
       <label className='label'>
         <input className='checkbox sr-only' />
         <span className='fake-checkbox-wrapper'>
-          <span className='fake-checkbox' onClick={() => toggleTodoStatus(todo, idx)}>
+          <span className='fake-checkbox' onClick={() => toggleTodoStatus(todo)}>
             <img
               className='icon-check'
               src={require('../../assets/images/icon-check.svg').default}
@@ -30,7 +30,7 @@ export default function TodoListItem({ todo, idx }) {
         aria-label='delete item'
         onClick={() => {
           setAnimation(true);
-          setTimeout(() => removeTodo(id, idx), 1000);
+          setTimeout(() => removeTodo(todo), 1000);
         }}>
         <img src={require('../../assets/images/icon-cross.svg').default} alt='cross' />
       </div>
