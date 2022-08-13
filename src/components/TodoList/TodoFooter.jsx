@@ -23,7 +23,15 @@ export default function TodoFooter() {
           Completed
         </button>
       </div>
-      <button className='clear-completed' onClick={clearCompleted}>Clear Completed</button>
+      <button
+        className='clear-completed'
+        onClick={() => {
+          // add delete animation to completed items before the todos are removed
+          document.querySelectorAll('.todo.completed').forEach((ele) => { ele.classList.add('animation--fadeOut'); });
+          setTimeout(() => clearCompleted(), 500);
+        }}>
+        Clear Completed
+      </button>
     </div>
   );
 }
