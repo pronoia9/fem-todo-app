@@ -22,14 +22,14 @@ export const ContextProvider = ({ children }) => {
     // document.getElementsByTagName('body')[0].classList.toggle('dark-theme');
   };
 
-  const toggleTodoStatus = (todo, idx) => {
+  const toggleTodoStatus = (todo) => {
     const temp = [...todos];
-    temp[idx].completed = !todo.completed;
+    temp[todos.findIndex((t) => t.id === todo.id)].completed = !todo.completed;
     setTodos(temp);
   };
 
-  const removeTodo = (id, idx) => {
-    setTodos(todos.filter((t) => t.id !== id));
+  const removeTodo = (todo) => {
+    setTodos(todos.filter((t) => t.id !== todo.id));
   };
 
   const addTodo = () => {
