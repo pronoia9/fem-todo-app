@@ -4,16 +4,22 @@ import './TodoListItem.scss';
 import { useStateContext } from '../../contexts/ContextProvider';
 
 export default function TodoListItem({ todo, idx }) {
-  const [animation, setAnimation] = useState(false);
+  const [checkAnimation, setCheckAnimation] = useState(todo.completed);
+  const [deleteAnimation, setDeleteAnimation] = useState(false);
   const { toggleTodoStatus, removeTodo } = useStateContext();
   const { id, title, completed } = todo;
 
   return (
-    <li className={`todo${completed ? ' completed' : ''}${animation ? ' animation--fadeOut' : ''}`}>
+    <li className={`todo${checkAnimation ? ' completed' : ''}${deleteAnimation ? ' animation--fadeOut' : ''}`}>
       <label className='label'>
         <input className='checkbox sr-only' />
         <span className='fake-checkbox-wrapper'>
-          <span className='fake-checkbox' onClick={() => toggleTodoStatus(todo)}>
+          <span
+            className='fake-checkbox'
+            onClick={() => {
+              setCheckAnimation(!checkAnimation);
+              setTimeout(() => toggleTodoStatus(todo), 1000);
+            }}>
             <img
               className='icon-check'
               src={require('../../assets/images/icon-check.svg').default}
@@ -29,7 +35,7 @@ export default function TodoListItem({ todo, idx }) {
         type='button'
         aria-label='delete item'
         onClick={() => {
-          setAnimation(true);
+          setDeleteAnimation(true);
           setTimeout(() => removeTodo(todo), 1000);
         }}>
         <img src={require('../../assets/images/icon-cross.svg').default} alt='cross' />
