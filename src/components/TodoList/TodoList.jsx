@@ -23,7 +23,7 @@ export default function TodoList() {
           <ul className='todo-list__list' id='todo-list'>
             {filteredTodos.map((todo, idx) => <TodoListItem key={todo.id} todo={todo} idx={idx} />)}
           </ul>
-          <TodoFooter />
+          <TodoFooter filteredTodos={filteredTodos} />
         </div>
       </form>
     </>
