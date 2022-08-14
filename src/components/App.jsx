@@ -5,6 +5,7 @@ import TodoList from './TodoList/TodoList';
 import './App.scss';
 
 import { useStateContext } from '../contexts/ContextProvider';
+import Footer from './Footer/Footer';
 
 export default function App() {
   const { darkMode } = useStateContext();
@@ -22,6 +23,7 @@ export default function App() {
           <ThemeButton />
         </div>
         <TodoList />
+        <Footer />
       </main>
     </>
   );
