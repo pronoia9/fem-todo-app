@@ -51,7 +51,9 @@ export const ContextProvider = ({ children }) => {
   };
 
   const addTodo = () => {
-    setTodos((todos) => [...todos, { id: Math.floor(Math.random() * 10000), title: input, completed: false }]);
+    let rng;
+    do { rng = Math.floor(Math.random() * 10000) } while (todos[rng]);
+    setTodos((todos) => [...todos, { id: rng, title: input, completed: false }]);
     setInput('');
   };
 
@@ -60,15 +62,14 @@ export const ContextProvider = ({ children }) => {
   };
 
   const startDragging = (todo) => {
-    setDragging(todo.title);
+    setDragging(todo);
   }
 
   const resetDragging = () => {
     setDragging(null);
   }
 
-  const dragTask = useCallback((todo, destinationTodo) => {
-    // const todo = 
+  const moveTask = useCallback((destination, todo) => {
   }, []);
 
   return (
@@ -85,7 +86,8 @@ export const ContextProvider = ({ children }) => {
         filter, setFilter,
         dragging, setDragging,
         startDragging, 
-        resetDragging
+        moveTask,
+        resetDragging,
       }}>
       {children}
     </StateContext.Provider>
