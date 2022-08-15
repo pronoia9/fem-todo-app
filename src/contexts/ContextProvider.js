@@ -51,10 +51,14 @@ export const ContextProvider = ({ children }) => {
   };
 
   const addTodo = () => {
-    let rng;
-    do { rng = Math.floor(Math.random() * 10000) } while (todos[rng]);
-    setTodos((todos) => [...todos, { id: rng, title: input, completed: false }]);
-    setInput('');
+    if (input) {
+      let rng;
+      do {
+        rng = Math.floor(Math.random() * 10000);
+      } while (todos[rng]);
+      setTodos((todos) => [...todos, { id: rng, title: input, completed: false }]);
+      setInput('');
+    }
   };
 
   const clearCompleted = () => {
