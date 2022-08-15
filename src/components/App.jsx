@@ -30,3 +30,4 @@ export default function App() {
 }
 
 // TODO: add dragging
+// TODO: organize styles
