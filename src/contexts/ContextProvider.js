@@ -59,8 +59,8 @@ export const ContextProvider = ({ children }) => {
     setTodos(todos.filter((t) => !t.completed));
   };
 
-  const startDragging = (title) => {
-    setDragging(title);
+  const startDragging = (todo) => {
+    setDragging(todo.title);
   }
 
   const resetDragging = () => {
