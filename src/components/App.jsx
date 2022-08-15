@@ -15,12 +15,12 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <div className='main'>
+    <>
       <Banner />
       <Header />
       <TodoList />
       <Footer />
-    </div>
+    </>
   );
 }
 
