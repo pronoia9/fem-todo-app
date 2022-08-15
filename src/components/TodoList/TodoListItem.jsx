@@ -16,12 +16,14 @@ export default function TodoListItem({ todo, idx }) {
   return (
     <li
       className={`todo${checkAnimation ? ' completed' : ''}${deleteAnimation ? ' animation--fadeOut' : ''}`}
+      id={id}
       dragging={dragging === todo}
       draggable={true}
       onDragStart={() => { startDragging(todo); }}
-      onDragOver={(e, destination) => {
+      onDragOver={(e) => {
         e.preventDefault();
-        if (destination && dragging && destination !== dragging) moveTask();
+        let destination = e.target.getAttribute('id');
+        if (destination && dragging && destination !== dragging.id) moveTask(destination, dragging);
       }}
       onDragEnd={resetDragging}>
       <label className='label'>
