@@ -17,7 +17,12 @@ export default function TodoListItem({ todo, idx }) {
   const handleDragEnd = () => { }
 
   return (
-    <div dragging={dragging === title}>
+    <div
+      dragging={dragging === title}
+      draggable={true}
+      onDragStart={() => {}}
+      onDragOver={() => {}}
+      onDragEnd={() => {}}>
       <li className={`todo${checkAnimation ? ' completed' : ''}${deleteAnimation ? ' animation--fadeOut' : ''}`}>
         <label className='label'>
           <input className='checkbox sr-only' />
