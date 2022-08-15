@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Header } from './Header/Header';
+import Header from './Header/Header';
 import Banner from './Banner/Banner';
 import TodoList from './TodoList/TodoList';
 import Footer from './Footer/Footer';
