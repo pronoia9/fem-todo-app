@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
+import { Header } from './Header/Header';
 import Banner from './Banner/Banner';
 import TodoList from './TodoList/TodoList';
+import Footer from './Footer/Footer';
 
 import { useStateContext } from '../contexts/ContextProvider';
-import Footer from './Footer/Footer';
-import { Header } from './Header/Header';
 
 export default function App() {
   const { darkMode } = useStateContext();
