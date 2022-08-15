@@ -18,7 +18,7 @@ const usePersistedState = (key, initialState) => {
     return initialState;
   } else {
     previousState = JSON.parse(previousState);
-    // if (key === 'darkMode' && previousState) document.getElementsByTagName('body')[0].classList.add('dark-theme');
+    if (key === 'darkMode' && previousState) document.getElementsByTagName('body')[0].classList.add('dark-theme');
     return previousState;
   }
 };
