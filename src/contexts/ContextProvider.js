@@ -3,12 +3,12 @@ import React, { createContext, useCallback, useContext, useEffect, useState } fr
 const StateContext = createContext();
 
 const defaultTodos = [
-  { id: 5, title: 'Complete online JavaScript course', completed: true },
-  { id: 4, title: 'Jog around the park 3x', completed: false },
+  { id: 1, title: 'Complete online JavaScript course', completed: true },
+  { id: 2, title: 'Jog around the park 3x', completed: false },
   { id: 3, title: '10 minutes meditation', completed: false },
-  { id: 2, title: 'Read for 1 hour', completed: false },
-  { id: 1, title: 'Pick up groceries', completed: false },
-  { id: 0, title: 'Complete Todo App on Frontend Mentor', completed: false },
+  { id: 4, title: 'Read for 1 hour', completed: false },
+  { id: 5, title: 'Pick up groceries', completed: false },
+  { id: 6, title: 'Complete Todo App on Frontend Mentor', completed: false },
 ];
 
 const usePersistedState = (key, initialState) => {
