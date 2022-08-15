@@ -17,7 +17,7 @@ export default function TodoListItem({ todo, idx }) {
     <li
       className={`todo${checkAnimation ? ' completed' : ''}${deleteAnimation ? ' animation--fadeOut' : ''}`}
       id={id}
-      dragging={dragging === todo}
+      dragging={dragging}
       draggable={true}
       onDragStart={() => { startDragging(todo); }}
       onDragOver={(e) => {
