@@ -23,7 +23,7 @@ export default function TodoListItem({ todo, idx }) {
       onDragOver={(e) => {
         e.preventDefault();
         let destination = e.target.getAttribute('id');
-        if (destination && dragging && destination !== dragging.id) moveTask(destination, dragging);
+        if (destination && dragging && `${destination}` !== `${dragging.id}`) moveTask(destination, dragging);
       }}
       onDragEnd={resetDragging}>
       <label className='label'>
