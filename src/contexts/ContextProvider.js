@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
 const StateContext = createContext();
 
@@ -28,6 +28,7 @@ export const ContextProvider = ({ children }) => {
   const [todos, setTodos] = useState(usePersistedState('todos', defaultTodos));
   const [input, setInput] = useState(usePersistedState('input', ''));
   const [filter, setFilter] = useState(usePersistedState('filter', ''));
+  const [dragging, setDragging] = useState(null);
 
   useEffect(() => { localStorage.setItem('darkMode', JSON.stringify(darkMode)); }, [darkMode]);
   useEffect(() => { localStorage.setItem('todos', JSON.stringify(todos)); }, [todos]);
@@ -58,6 +59,18 @@ export const ContextProvider = ({ children }) => {
     setTodos(todos.filter((t) => !t.completed));
   };
 
+  const startDragging = (title) => {
+    setDragging(title);
+  }
+
+  const resetDragging = () => {
+    setDragging(null);
+  }
+
+  const dragTask = useCallback((todo, destinationTodo) => {
+    // const todo = 
+  }, []);
+
   return (
     <StateContext.Provider
       value={{
@@ -70,6 +83,9 @@ export const ContextProvider = ({ children }) => {
         clearCompleted,
         input, setInput,
         filter, setFilter,
+        dragging, setDragging,
+        startDragging, 
+        resetDragging
       }}>
       {children}
     </StateContext.Provider>
