@@ -13,6 +13,12 @@ export default function TodoListItem({ todo, idx }) {
   const { id, title, completed } = todo;
   const { toggleTodoStatus, removeTodo, dragging, startDragging, moveTask, resetDragging } = useStateContext();
 
+  const handleCheck = () => {
+    setCheckAnimation(!checkAnimation);
+    // IF theres a filter, set timeout for a sec to get the check + strikethrough animation before the todo disappears/filtered out
+    setTimeout(() => { toggleTodoStatus(todo); }, 500);
+  }
+
   return (
     <li
       className={`todo${checkAnimation ? ' completed' : ''}${deleteAnimation ? ' animation--fadeOut' : ''}`}
@@ -32,15 +38,11 @@ export default function TodoListItem({ todo, idx }) {
         <span className='fake-checkbox-wrapper'>
           <span
             className='fake-checkbox'
-            onClick={() => {
-              setCheckAnimation(!checkAnimation);
-              // IF theres a filter, set timeout for a sec to get the check + strikethrough animation before the todo disappears/filtered out
-              setTimeout(() => { toggleTodoStatus(todo); }, 500);
-            }}>
+            onClick={handleCheck}>
             <img className='icon-check' src={icon_check.default} alt='check' aria-hidden='true' />
           </span>
         </span>
-        <span className='name'>{title}</span>
+        <span className='name' onDoubleClick={handleCheck}>{title}</span>
       </label>
       <div
         className='btn-close'
