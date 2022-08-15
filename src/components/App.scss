@@ -1,5 +1,4 @@
 /************************  APP  ************************/
-/* layout */
 body {
   padding: 0 3rem;
   padding-top: 6rem;
@@ -12,7 +11,6 @@ body {
   // margin-top: 6rem;
 }
 
-/* header */
 .main__header {
   display: flex;
   align-items: center;
@@ -42,7 +40,6 @@ body {
   color: var(--color-bright-blue);
 }
 
-/* media queries */
 @media only screen and (min-width: 800px) {
   body {
     padding-top: 8.75rem;
