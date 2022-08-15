@@ -32,7 +32,7 @@ export default function TodoListItem({ todo, idx }) {
             onClick={() => {
               setCheckAnimation(!checkAnimation);
               // IF theres a filter, set timeout for a sec to get the check + strikethrough animation before the todo disappears/filtered out
-              setTimeout(() => toggleTodoStatus(todo), 500);
+              setTimeout(() => { toggleTodoStatus(todo); }, 500);
             }}>
             <img className='icon-check' src={icon_check.default} alt='check' aria-hidden='true' />
           </span>
