@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import Banner from './Banner/Banner';
-import ThemeButton from './ThemeButton/ThemeButton';
 import TodoList from './TodoList/TodoList';
 import './App.scss';
 
 import { useStateContext } from '../contexts/ContextProvider';
 import Footer from './Footer/Footer';
+import { Header } from './Header/Header';
 
 export default function App() {
   const { darkMode } = useStateContext();
@@ -15,19 +15,13 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <>
+    <div className='main'>
       <Banner />
-      <main className='main'>
-        <div className='main__header'>
-          <h1 className='heading'>TODO</h1>
-          <ThemeButton />
-        </div>
-        <TodoList />
-        <Footer />
-      </main>
-    </>
+      <Header />
+      <TodoList />
+      <Footer />
+    </div>
   );
 }
 
 // TODO: add dragging
-// TODO: organize styles
