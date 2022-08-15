@@ -12,7 +12,7 @@ export default function TodoListItem({ todo, idx }) {
 
   const handleDragStart = () => {}
   
-  const handleDragEnter = () => { }
+  const handleDragOver = () => { }
   
   const handleDragEnd = () => { }
 
