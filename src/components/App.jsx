@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Banner from './Banner/Banner';
 import TodoList from './TodoList/TodoList';
-import './App.scss';
 
 import { useStateContext } from '../contexts/ContextProvider';
 import Footer from './Footer/Footer';
