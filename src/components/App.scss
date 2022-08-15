@@ -1,25 +1,6 @@
 /************************  APP  ************************/
 /* background images */
-.bg-img-container {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
 
-.bg-img {
-  position: absolute;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-.bg-img--active {
-  opacity: 1;
-}
 
 /* layout */
 :global(body) {
@@ -414,24 +395,7 @@ button:hover {
 }
 
 /***********************  BUNDLE  ***********************/
-.bg-img-container {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-.bg-img {
-  position: absolute;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s;
-}
-.bg-img--active {
-  opacity: 1;
-}
+
 body {
   padding: 0 3rem;
   padding-top: 6rem;
