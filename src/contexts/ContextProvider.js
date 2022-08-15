@@ -69,8 +69,14 @@ export const ContextProvider = ({ children }) => {
     setDragging(null);
   }
 
-  const moveTask = useCallback((destination, todo) => {
-  }, []);
+  const moveTask = useCallback((destination, origin) => {
+    // eslint-disable-next-line eqeqeq
+    const originIdx = todos.findIndex((t) => t.id == origin.id), destinationIdx = todos.findIndex((t) => t.id == destination);
+
+    const temp = [...todos], [originTodo] = temp.splice(originIdx, 1);
+    temp.splice(destinationIdx, 0, originTodo);
+    setTodos(temp);
+  }, [todos]);
 
   return (
     <StateContext.Provider
