@@ -28,7 +28,6 @@ export const ContextProvider = ({ children }) => {
   const [todos, setTodos] = useState(usePersistedState('todos', defaultTodos));
   const [input, setInput] = useState(usePersistedState('input', ''));
   const [filter, setFilter] = useState(usePersistedState('filter', ''));
-  const [dragging, setDragging] = useState(null);
 
   useEffect(() => { localStorage.setItem('darkMode', JSON.stringify(darkMode)); }, [darkMode]);
   useEffect(() => { localStorage.setItem('todos', JSON.stringify(todos)); }, [todos]);
@@ -62,19 +61,15 @@ export const ContextProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
-        darkMode,
-        setDarkMode,
+        darkMode, setDarkMode,
         toggleTheme,
-        todos,
-        setTodos,
+        todos, setTodos,
         toggleTodoStatus,
         removeTodo,
         addTodo,
         clearCompleted,
-        input,
-        setInput,
-        filter,
-        setFilter,
+        input, setInput,
+        filter, setFilter,
       }}>
       {children}
     </StateContext.Provider>
