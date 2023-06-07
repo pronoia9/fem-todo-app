@@ -27,7 +27,7 @@ export default function App() {
       <GlobalStyles />
       {loading && <Preloader />}
       <Banner />
-      <Header />
+      <Header theme={theme} setTheme={setTheme} />
       <TodoList />
       <Footer />
     </ThemeProvider>
