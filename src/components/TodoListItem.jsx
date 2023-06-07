@@ -46,7 +46,7 @@ export default function TodoListItem({ todo, index }) {
     >
       <Label>
         <Checkbox className='sr-only' />
-        <FakeCheckboxWrapper completed={checkAnimation}>
+        <FakeCheckboxWrapper className='fake-checkbox-wrapper' completed={checkAnimation}>
           <FakeCheckbox onClick={handleCheck} completed={checkAnimation}>
             <IconCheck src={icon_check} alt='check' aria-hidden='true' completed={checkAnimation} />
           </FakeCheckbox>
