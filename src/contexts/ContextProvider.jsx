@@ -1,19 +1,16 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
-import { defaultTodos } from '../utils/data';
 import { usePersistedState } from '../utils/utils';
 
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const [todos, setTodos] = useState(usePersistedState('todos', defaultTodos));
-  const [input, setInput] = useState(usePersistedState('input', ''));
-  const [filter, setFilter] = useState(usePersistedState('filter', ''));
+  const [todos, setTodos] = useState(usePersistedState('todos'));
+  const [input, setInput] = useState(usePersistedState('input'));
+  const [filter, setFilter] = useState(usePersistedState('filter'));
   const [dragging, setDragging] = useState(null);
 
-  useEffect(() => { localStorage.setItem('todos', JSON.stringify(todos)); }, [todos]);
-  useEffect(() => { localStorage.setItem('input', JSON.stringify(input)); }, [input]);
-  useEffect(() => { localStorage.setItem('filter', JSON.stringify(filter)); }, [filter]);
+  useEffect(() => { localStorage.setItem('todo-or-not-todo', JSON.stringify({ todos, input, filter })); }, [todos, input, filter]);
 
   const toggleTodoStatus = (todo) => {
     const temp = [...todos];
@@ -28,13 +25,9 @@ export const ContextProvider = ({ children }) => {
   const addTodo = () => {
     if (input) {
       let rng;
-      do {
-        rng = Math.floor(Math.random() * 10000);
-      } while (todos[rng]);
-      // add to the bottom
-      setTodos((todos) => [...todos, { id: rng, title: input, completed: false }]);
-      // add to the top
-      // setTodos((todos) => [{ id: rng, title: input, completed: false }, ...todos]);
+      do { rng = Math.floor(Math.random() * 10000); } while (todos[rng]);
+      setTodos((todos) => [...todos, { id: rng, title: input, completed: false }]); // add to the bottom
+      // setTodos((todos) => [{ id: rng, title: input, completed: false }, ...todos]); // add to the top
       setInput('');
     }
   };
@@ -66,21 +59,11 @@ export const ContextProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
-        todos,
-        setTodos,
-        toggleTodoStatus,
-        removeTodo,
-        addTodo,
-        clearCompleted,
-        input,
-        setInput,
-        filter,
-        setFilter,
-        dragging,
-        setDragging,
-        startDragging,
-        moveTask,
-        resetDragging,
+        todos, setTodos,
+        toggleTodoStatus, removeTodo, addTodo, clearCompleted,
+        input, setInput,
+        filter, setFilter,
+        dragging, setDragging, startDragging, moveTask, resetDragging,
       }}
     >
       {children}
