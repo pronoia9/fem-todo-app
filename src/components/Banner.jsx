@@ -22,6 +22,6 @@ const Image = styled.div`
   width: 100%;
   height: 300px;
   object-fit: cover;
-  transition: opacity 1s;
+  transition: all 1s ease-in-out;
   background-image: url(${(props) => `/images/bg-desktop-${props.theme.image}`});
 `;

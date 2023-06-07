@@ -13,7 +13,7 @@ const Container = styled.div`
   letter-spacing: -0.2px;
   line-height: 1.75rem;
   text-align: center;
-  transition: color 1s;
+  transition: color 1s ease-in-out;
 `;
 
 const Text = styled.p`

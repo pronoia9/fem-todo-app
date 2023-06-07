@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 50%;
     overflow-x: hidden;
     background-color: var(--color-bg);
-    transition: background-color 1s;
+    transition: background-color 0.5s ease-in-out;
   }
 
   *,
