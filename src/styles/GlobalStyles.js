@@ -1,5 +1,6 @@
 // GlobalStyles.js
 import { createGlobalStyle } from 'styled-components';
+import { responsive } from './Responsive';
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -63,4 +64,6 @@ export const GlobalStyles = createGlobalStyle`
   *:focus {
     outline: 2px dotted var(--color-text-active);
   }
+
+  ${responsive}
 `;
