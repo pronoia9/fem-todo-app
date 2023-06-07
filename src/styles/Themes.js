@@ -8,6 +8,7 @@ export const lightTheme = {
   colorTextCompleted: 'hsl(233, 11%, 84%)',
   colorText1: 'hsl(235, 9%, 61%)',
   boxShadow: '0px 35px 50px -15px rgba(194, 195, 214, 0.5)',
+  image: 'light.jpg',
 };
 
 export const darkTheme = {
@@ -20,4 +21,5 @@ export const darkTheme = {
   colorTextCompleted: 'hsl(233, 14%, 35%)',
   colorText1: 'hsl(235, 16%, 43%)',
   boxShadow: '0px 35px 50px -15px rgba(0, 0, 0, 0.5)',
+  image: 'dark.jpg',
 };
