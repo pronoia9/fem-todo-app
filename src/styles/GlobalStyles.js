@@ -25,6 +25,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 50%;
     overflow-x: hidden;
     background-color: var(--color-bg);
+    transition: background-color 1s;
   }
 
   *,
@@ -37,13 +38,8 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    background-position: bottom -1rem left -42rem, bottom -1rem right -42rem, top 360px right -20rem;
-    background-repeat: no-repeat;
-    background-size: 30rem, 30rem, 10rem;
-    background-color: var(--color-bg);
     font-family: 'Josefin Sans', sans-serif;
     font-size: 2.25rem;
-    transition: background 1s;
     padding: 0 3rem;
     padding-top: 6rem;
   }
