@@ -88,8 +88,8 @@ const ListItem = styled.li`
   background: var(--color-surface);
   color: var(--color-text-active);
   transition: border 1s, background 1s, color 1s;
-  ${({ deleteAnimation }) =>
-    deleteAnimation &&
+  ${({ animationDelete }) =>
+    animationDelete &&
     css`
       animation: ${fadeOutLeft} 1s;
     `};
