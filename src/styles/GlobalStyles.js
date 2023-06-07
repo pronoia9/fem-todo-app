@@ -14,9 +14,50 @@ export const GlobalStyles = createGlobalStyle`
     --box-shadow: ${({ theme }) => theme.boxShadow};
   }
 
-  body {
+  html {
+    position: relative;
+    box-sizing: border-box;
+    font-size: 50%;
+    overflow-x: hidden;
     background-color: var(--color-bg);
-    color: var(--color-text-1);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  *, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    background-position: bottom -1rem left -42rem, bottom -1rem right -42rem, top 360px right -20rem;
+    background-repeat: no-repeat;
+    background-size: 30rem, 30rem, 10rem;
+    background-color: var(--color-bg);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2.25rem;
+    transition: background 1s;
+    padding: 0 3rem;
+    padding-top: 6rem;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 67.5rem;
+    margin: 0 auto;
+  }
+
+  .sr-only {
+      width: 1px;
+      height: 1px;
+      position: absolute;
+      clip: rect(0 0 0 0);
+      clip-path: inset(100%);
+      white-space: nowrap;
+      overflow: hidden;
+  }
+
+  *:focus {
+      outline: 2px dotted var(--color-text-active);
   }
 `;
