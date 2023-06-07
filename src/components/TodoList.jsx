@@ -18,8 +18,8 @@ export default function TodoList() {
       <TodoInput />
       <Container>
         <List>
-          {filteredTodos.map((todo, idx) => (
-            <TodoListItem key={todo.id} todo={todo} idx={idx} />
+          {filteredTodos.map((todo, index) => (
+            <TodoListItem key={todo.id} todo={todo} index={index} />
           ))}
         </List>
         <TodoFooter filteredTodos={filteredTodos} />
