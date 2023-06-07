@@ -29,12 +29,14 @@ export const GlobalStyles = createGlobalStyle`
     transition: background-color 0.5s ease-in-out;
   }
 
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
+  }
+
+  *:focus {
+    outline: 2px dotted var(--color-text-active);
   }
 
   body {
@@ -49,20 +51,6 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
     max-width: 67.5rem;
     margin: 0 auto;
-  }
-
-  .sr-only {
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    clip: rect(0 0 0 0);
-    clip-path: inset(100%);
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-  *:focus {
-    outline: 2px dotted var(--color-text-active);
   }
 
   ${responsive}
