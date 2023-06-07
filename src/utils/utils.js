@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { lightTheme, darkTheme } from '../styles/Themes';
 
 // Get the system's preferred color scheme
