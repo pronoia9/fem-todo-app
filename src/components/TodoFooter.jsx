@@ -2,25 +2,28 @@ import styled from 'styled-components';
 
 import { useStateContext } from '../contexts/ContextProvider';
 
-export default function TodoFooter({ filteredTodos = [] }) {
+export default function TodoFooter({ filteredTodos = [], todoRefs }) {
   const { filter, setFilter, clearCompleted } = useStateContext();
   const todo = filteredTodos.reduce((total, curr) => (!curr.completed ? total + 1 : total), 0),
     done = filteredTodos.reduce((total, curr) => (curr.completed ? total + 1 : total), 0);
-  
+
   const handleClear = () => {
-    // add delete animation to completed items before the todos are removed
-    document.querySelectorAll('.todo.completed').forEach((ele) => {
-      ele.classList.add('animation--fadeOut');
-    });
+    filteredTodos.forEach((t) => { if (t.completed) todoRefs.current[t.id].classList.add('delete'); });
     setTimeout(() => clearCompleted(), 500);
-  }
-  
+  };
+
   return (
     <Container>
-      {filter !== 'completed'
-        ? (<span>{todo} item{todo !== 1 && 's'} left</span>)
-        : (<span>{done} item{done !== 1 && 's'} done</span>)}
-      
+      {filter !== 'completed' ? (
+        <span>
+          {todo} item{todo !== 1 && 's'} left
+        </span>
+      ) : (
+        <span>
+          {done} item{done !== 1 && 's'} done
+        </span>
+      )}
+
       <Wrapper>
         <Button active={!filter} onClick={() => setFilter('')} disabled={!filter}>
           All
@@ -32,9 +35,7 @@ export default function TodoFooter({ filteredTodos = [] }) {
           Completed
         </Button>
       </Wrapper>
-      <Button onClick={handleClear}>
-        Clear Completed
-      </Button>
+      <Button onClick={handleClear}>Clear Completed</Button>
     </Container>
   );
 }

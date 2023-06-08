@@ -5,8 +5,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 import icon_check from '../../public/images/icon-check.svg';
 import icon_cross from '../../public/images/icon-cross.svg';
 
-export default function TodoListItem({ todo, index }) {
-  const { id, title } = todo;
+export default function TodoListItem({ todo, index, todoRefs, deleteRefs }) {
   const { toggleTodoStatus, removeTodo, dragging, startDragging, moveTask, resetDragging } = useStateContext();
   const [checkAnimation, setCheckAnimation] = useState(todo.completed),
     [deleteAnimation, setDeleteAnimation] = useState(false);
@@ -36,13 +35,14 @@ export default function TodoListItem({ todo, index }) {
 
   return (
     <ListItem
-      id={id}
+      ref={(ref) => (todoRefs.current[todo.id] = ref)}
       dragging={dragging}
       draggable={true}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       onDragEnd={resetDragging}
       animationDelete={deleteAnimation ? true : false}
+      className={deleteAnimation ? 'delete' : ''}
     >
       <Label>
         <Checkbox className='sr-only' />
@@ -52,7 +52,7 @@ export default function TodoListItem({ todo, index }) {
           </FakeCheckbox>
         </FakeCheckboxWrapper>
         <Title onDoubleClick={handleCheck} completed={checkAnimation}>
-          {title}
+          {todo.title}
         </Title>
       </Label>
       <CloseButton type='button' aria-label='delete item' onClick={handleDelete}>
@@ -93,6 +93,10 @@ const ListItem = styled.li`
     css`
       animation: ${fadeOutLeft} 1s;
     `};
+
+  &.delete {
+    animation: ${fadeOutLeft} 1s;
+  }
 
   &:hover {
     button {
