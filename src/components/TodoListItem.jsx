@@ -5,7 +5,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 import icon_check from '../../public/images/icon-check.svg';
 import icon_cross from '../../public/images/icon-cross.svg';
 
-export default function TodoListItem({ todo, index, todoRefs, deleteRefs }) {
+export default function TodoListItem({ todo, todoRefs }) {
   const { toggleTodoStatus, removeTodo, dragging, startDragging, moveTask, resetDragging } = useStateContext();
   const [checkAnimation, setCheckAnimation] = useState(todo.completed),
     [deleteAnimation, setDeleteAnimation] = useState(false);

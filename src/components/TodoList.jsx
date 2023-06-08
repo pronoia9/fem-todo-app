@@ -20,7 +20,7 @@ export default function TodoList() {
       <Container>
         <List>
           {filteredTodos.map((todo, index) => (
-            <TodoListItem key={todo.id} todo={todo} index={index} todoRefs={todoRefs} />
+            <TodoListItem key={todo.id} todo={todo} todoRefs={todoRefs} />
           ))}
         </List>
         <TodoFooter filteredTodos={filteredTodos} todoRefs={todoRefs} />
