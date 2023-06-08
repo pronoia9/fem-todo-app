@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { Banner, Footer, Header, Preloader, TodoList } from './components';
+import { Banner, Footer, Header, Preloader, Todos } from './components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { handleColorSchemeChange, getSystemTheme } from './utils/utils';
 
@@ -28,7 +28,7 @@ export default function App() {
       {loading && <Preloader />}
       <Banner />
       <Header theme={theme} setTheme={setTheme} />
-      <TodoList />
+      <Todos />
       <Footer />
     </ThemeProvider>
   );

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { useStateContext } from '../contexts/ContextProvider';
 
-export default function TodoFooter({ filteredTodos = [], todoRefs }) {
+export default function TodoFilters({ filteredTodos = [], todoRefs }) {
   const { filter, setFilter, clearCompleted } = useStateContext();
   const todo = filteredTodos.reduce((total, curr) => (!curr.completed ? total + 1 : total), 0),
     done = filteredTodos.reduce((total, curr) => (curr.completed ? total + 1 : total), 0);

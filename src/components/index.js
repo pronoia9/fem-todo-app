@@ -3,9 +3,10 @@ import Footer from './Footer';
 import Header from './Header';
 import Preloader from './Preloader';
 import ThemeButton from './ThemeButton';
-import TodoFooter from './TodoFooter';
+import TodoFilters from './TodoFilters';
 import TodoInput from './TodoInput';
-import TodoList from './TodoList';
-import TodoListItem from './TodoListItem';
+import TodoItem from './TodoItem';
+import Todos from './Todos';
 
-export { Banner, Footer, Header, Preloader, ThemeButton, TodoFooter, TodoInput, TodoList, TodoListItem };
+
+export { Banner, Footer, Header, Preloader, ThemeButton, TodoFilters, TodoInput, TodoItem, Todos };

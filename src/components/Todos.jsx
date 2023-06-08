@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-import { TodoFooter, TodoInput, TodoListItem } from './';
+import { TodoInput, TodoItem, TodoFilters } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
-export default function TodoList() {
+export default function Todos() {
   const { todos, filter } = useStateContext();
   const [filteredTodos, setFilteredTodos] = useState(todos);
   const todoRefs = useRef({});
@@ -20,10 +20,10 @@ export default function TodoList() {
       <Container>
         <List>
           {filteredTodos.map((todo, index) => (
-            <TodoListItem key={todo.id} todo={todo} todoRefs={todoRefs} />
+            <TodoItem key={todo.id} todo={todo} todoRefs={todoRefs} />
           ))}
         </List>
-        <TodoFooter filteredTodos={filteredTodos} todoRefs={todoRefs} />
+        <TodoFilters filteredTodos={filteredTodos} todoRefs={todoRefs} />
       </Container>
     </Form>
   );
