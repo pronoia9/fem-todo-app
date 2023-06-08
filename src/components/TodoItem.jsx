@@ -175,9 +175,11 @@ const Title = styled.span`
   font-size: 1.5rem;
   line-height: 2rem;
   color: ${({ completed }) => completed && 'var(--color-text-completed)'};
-  /* transition: color 0s; */
+  transition: color 0s;
+  text-decoration: ${({ completed }) => completed && 'line-through'};
+  transition: text-decoration 1s;
 
-  &::before {
+  /* &::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -186,7 +188,7 @@ const Title = styled.span`
     height: 1px;
     background: ${({ completed }) => (completed ? 'var(--color-text-completed)' : 'var(--color-text-active)')};
     transition: width 1s, background 1s;
-  }
+  } */
 
   @media only screen and (min-width: 600px) {
     font-size: 2.25rem;
